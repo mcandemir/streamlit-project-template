@@ -1,0 +1,22 @@
+import os
+import sys
+import argparse
+from .createtemplate import CreateTemplate
+
+
+def main():
+    template = CreateTemplate()
+
+    parser = argparse.ArgumentParser(
+        prog='ProgramName',
+        description='What the program does',
+        epilog='Text at the bottom of help')
+
+    parser.add_argument('createtemplate')
+
+    args = parser.parse_args()
+
+    if args.createtemplate == 'createtemplate':
+        template.createTemplate()
+
+
