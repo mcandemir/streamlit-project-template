@@ -5,19 +5,6 @@ class CreateTemplate():
         
         self.BASE_DIR = os.getcwd()
 
-        # self.TEMPLATE_DIRS = [
-        #     'components/',
-        #     'pages/',
-        #     'callbacks/',
-        #     ''
-        # ]
-
-        # self.TEMPLATE_FILES = [
-        #     'app.py'
-        #     'components/components.py',
-        #     'pages/mainpage.py',
-        #     'callbacks/callbacks.py',
-        # ]
 
 
     def createTemplate(self):
@@ -28,17 +15,45 @@ class CreateTemplate():
         #     with open(os.path.join(CURRENT_DIR, template_file), 'w', ) as f:
         #         pass
         
-        self._create_components()
+        self._set_paths()
+        # self._create_components()
         pass
 
 
     def _create_components(self):
-        if 'components' not in os.listdir(self.BASE_DIR):
-            os.makedirs(os.path.join(self.BASE_DIR, 'components'))
 
-        print(os.path.exists(os.path.join(self.BASE_DIR, 'components')))
+        os.path.abspath(__file__)
 
-        with open(os.path.join(self.BASE_DIR, 'components\components.py')) as f:
-            f.write('')
 
-        pass
+        # name = 'components/components.py'
+        # os.makedirs(os.path.dirname(name), exist_ok=True)
+        # with open(name, "w") as f:
+        #     # with open('')
+
+
+        #     f.write(
+        #         """import streamlit as st
+        #         ### This is where you define your components. Every component is a piece of your applicaton
+        #         def component_input_form():
+        #             st.text_area(label="Name:")
+        #             """)
+
+
+
+
+        # # with open(os.path.join(self.BASE_DIR, 'components\components.py')) as f:
+        # #     f.write('')
+
+        # pass
+    
+    def _set_paths(self):
+        path = os.path.abspath(__file__)
+        path = path[:path.rfind('\\')]
+
+        component_template_path = os.path.join(path, 'template\components.py')
+        print(component_template_path)
+
+        with open(component_template_path, 'r') as f:
+            print(f.read())
+
+
