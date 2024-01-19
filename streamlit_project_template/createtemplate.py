@@ -2,58 +2,52 @@ import os
 
 class CreateTemplate():
     def __init__(self) -> None:
-        
+        # get the user's project base dir
         self.BASE_DIR = os.getcwd()
+
+        # template modules of the streamlit app
+        self.TEMPLATES= {
+            'components': 'components/components.py',
+            'pages': 'pages/pages.py',
+            'callbacks': 'callbacks/callbacks.py',
+        }
+
+        # base templates (these will be copied to the user's project)
+        # values will be set in _set_paths
+        self.BASE_TEMPLATE_PATHS = {
+            'components': '',
+            'pages': '',
+            'callbacks': '',
+        }
 
 
 
     def createTemplate(self):
-        # for template_dir in self.TEMPLATE_DIRS:
-        #     os.makedirs(os.path.join(CURRENT_DIR, template_dir))
-        
-        # for template_file in self.TEMPLATE_FILES:
-        #     with open(os.path.join(CURRENT_DIR, template_file), 'w', ) as f:
-        #         pass
-        
+        # processes
         self._set_paths()
-        # self._create_components()
+        self._create_components()
         pass
 
 
     def _create_components(self):
-
-        os.path.abspath(__file__)
-
-
-        # name = 'components/components.py'
-        # os.makedirs(os.path.dirname(name), exist_ok=True)
-        # with open(name, "w") as f:
-        #     # with open('')
+        for template in self.TEMPLATES:
+            # make the template dirs and files
+            os.makedirs(os.path.dirname(self.TEMPLATES[template]), exist_ok=True)
 
 
-        #     f.write(
-        #         """import streamlit as st
-        #         ### This is where you define your components. Every component is a piece of your applicaton
-        #         def component_input_form():
-        #             st.text_area(label="Name:")
-        #             """)
+            # write the contents to template files
+            with open(self.TEMPLATES[template], "w") as f:
+                with open(self.BASE_TEMPLATE_PATHS[template], 'r') as f2:
+                    component_template_content = f2.read()
+                f.write(component_template_content)
 
-
-
-
-        # # with open(os.path.join(self.BASE_DIR, 'components\components.py')) as f:
-        # #     f.write('')
-
-        # pass
     
     def _set_paths(self):
+        # set the base template paths to be copied
         path = os.path.abspath(__file__)
         path = path[:path.rfind('\\')]
 
-        component_template_path = os.path.join(path, 'template\components.py')
-        print(component_template_path)
-
-        with open(component_template_path, 'r') as f:
-            print(f.read())
+        for base_template in self.BASE_TEMPLATE_PATHS.keys():
+            self.BASE_TEMPLATE_PATHS[base_template] = os.path.join(path, f'template\{base_template}.py')
 
 
