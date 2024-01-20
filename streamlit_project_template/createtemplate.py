@@ -7,29 +7,30 @@ class CreateTemplate():
 
         # template modules of the streamlit app
         self.TEMPLATES= {
-            'components': 'components/components.py',
-            'pages': 'pages/pages.py',
-            'callbacks': 'callbacks/callbacks.py',
+            'app': './app.py',
+            'callbacks': 'src/callbacks.py',
+            'components': '.src/components.py',
+            'pages': '.src/pages.py',
         }
 
         # base templates (these will be copied to the user's project)
         # values will be set in _set_paths
         self.BASE_TEMPLATE_PATHS = {
+            'app': '',
+            'callbacks': '',
             'components': '',
             'pages': '',
-            'callbacks': '',
         }
-
 
 
     def createTemplate(self):
         # processes
         self._set_paths()
-        self._create_components()
+        self._create_srcfiles()
         pass
 
 
-    def _create_components(self):
+    def _create_srcfiles(self):
         for template in self.TEMPLATES:
             # make the template dirs and files
             os.makedirs(os.path.dirname(self.TEMPLATES[template]), exist_ok=True)
