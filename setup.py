@@ -23,11 +23,11 @@ setuptools.setup(
     # install_requires=[
     #     "streamlit"
     # ],
-    extras_require={
-        "extras": [
-            "streamlit-extras"
-        ]
-    },
+    # extras_require={
+    #     "extras": [
+    #         "streamlit-extras"
+    #     ]
+    # },
     packages=setuptools.find_packages(),
     include_package_data=True,
     entry_points={
