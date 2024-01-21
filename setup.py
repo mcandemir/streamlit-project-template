@@ -7,17 +7,19 @@ setuptools.setup(
     description="A solid project structure from basit to advanced streamlit applications.",
     long_description=pathlib.Path("README.md").read_text(),
     long_description_content_type="text/markdown",
-    author="Can Demir",
+    author="Mehmet Can Demir",
     author_email="mhmtcndmr01@gmail.com",
-    licance="The Unlicence",
+    licance="MIT",
     project_urls={
-        "Documentation": "test",
-        "Repository": "github"
+        "Documentation": "https://github.com/mcandemir/streamlit-project-template/blob/master/README.md",
+        "Repository": "https://github.com/mcandemir/streamlit-project-template"
     },
     classifiers={
-        "Development Status :: Alpha",
+        "Development Status :: 3 - Alpha",
+        "Environment :: Console",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3.12.0"
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.12"
     },
     python_requires=">=3.6",
     # install_requires=[

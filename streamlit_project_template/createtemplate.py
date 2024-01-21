@@ -1,12 +1,22 @@
+"""
+this module contains the template creation steps and the functions
+"""
+
 import os
 
 class CreateTemplate():
+    """
+    this is the class which handles template creations
+    """
     def __init__(self) -> None:
+        """
+        set initial values at the initialization
+        """
         # get the user's project base dir
-        self.BASE_DIR = os.getcwd()
+        self.base_dir = os.getcwd()
 
         # template modules of the streamlit app
-        self.TEMPLATES= {
+        self.templates= {
             'app': './app.py',
             'callbacks': 'src/callbacks.py',
             'components': 'src/components.py',
@@ -16,7 +26,7 @@ class CreateTemplate():
 
         # base templates (these will be copied to the user's project)
         # values will be set in _set_paths
-        self.BASE_TEMPLATE_PATHS = {
+        self.base_template_paths = {
             'app': '',
             'callbacks': '',
             'components': '',
@@ -25,40 +35,60 @@ class CreateTemplate():
         }
 
 
-    def createTemplate(self):
-        # processes
+    def create_template(self):
+        """
+        creates the template files by calling needed functions
+        """
         self._set_paths()
         self._create_srcfiles()
         self._create_dockerfile()
         self._create_requirements()
         self._create_readme()
-        pass
+
+
+    def show_template(self):
+        """
+        print out the template
+        """
+        for file in self.templates.values():
+            print(file)
 
 
     def _create_srcfiles(self):
-        for template in self.TEMPLATES:
+        """
+        this will create the main template files
+        """
+        for template, file in self.templates.items():
             # make the template dirs and files
-            os.makedirs(os.path.dirname(self.TEMPLATES[template]), exist_ok=True)
+            os.makedirs(os.path.dirname(file), exist_ok=True)
 
 
             # write the contents to template files
-            with open(self.TEMPLATES[template], "w") as f:
-                with open(self.BASE_TEMPLATE_PATHS[template], 'r') as f2:
+            with open(file, "w", encoding="utf8") as f:
+                with open(self.base_template_paths[template], 'r', encoding="utf8") as f2:
                     component_template_content = f2.read()
                 f.write(component_template_content)
 
-    
+
     def _set_paths(self):
-        # set the base template paths to be copied
+        """
+        this will set the actual path of the package template files to be copied
+        """
         path = os.path.abspath(__file__)
         path = path[:path.rfind('\\')]
+        path = os.path.join(path, 'template/')
 
-        for base_template in self.BASE_TEMPLATE_PATHS.keys():
-            self.BASE_TEMPLATE_PATHS[base_template] = os.path.join(path, f'template\{base_template}.py')
+        for base_template in self.base_template_paths:
+            self.base_template_paths[base_template] = os.path.join(path,
+                                                                   f'{base_template}.py',
+                                                                   ).replace('/', '\\')
 
 
     def _create_dockerfile(self):
-        with open('./Dockerfile', 'w') as f:
+        """
+        create the dockerfile
+        """
+        with open('./Dockerfile', 'w', encoding="utf8") as f:
             f.write("""FROM python:3.12-slim
 
 WORKDIR /app
@@ -84,13 +114,22 @@ ENTRYPOINT ["streamlit", "run", "app.py", "--server.port=8501", "--server.addres
 
 
     def _create_requirements(self):
-        with open('./requirements.txt', 'w') as f:
+        """
+        create requirements file
+        """
+        with open('./requirements.txt', 'w', encoding="utf8") as f:
             f.write("""streamlit""")
-    
+
     def _create_readme(self):
-        with open('./README.md', 'w') as f:
+        """
+        create readme file
+        """
+        with open('./README.md', 'w', encoding="utf8") as f:
             f.write("""# My Project""")
-    
+
     def _create_gitignore(self):
-        with open('./.gitignore', 'w') as f:
+        """
+        create gitignore file
+        """
+        with open('./.gitignore', 'w', encoding="utf8") as f:
             f.write("""__pycache__/""")
