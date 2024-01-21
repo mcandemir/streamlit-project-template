@@ -3,7 +3,6 @@ this is where you define your pages (as classes with static "loadPage" functions
 and build your pages with the components you created
 """
 
-import streamlit as st
 from src import components
 
 
