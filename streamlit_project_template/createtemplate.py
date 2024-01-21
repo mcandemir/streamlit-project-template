@@ -86,3 +86,7 @@ ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--ser
     def _create_readme(self):
         with open('./README.md', 'w') as f:
             f.write("""# My Project""")
+    
+    def _create_gitignore(self):
+        with open('./.gitignore', 'w') as f:
+            f.write("""__pycache__/""")
