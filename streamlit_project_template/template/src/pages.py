@@ -11,7 +11,6 @@ from src import components
 class HomePage():
     """
     Your Home / Landing Page
-
     Here you can add your defined components under the loadPage() function
     """
     @staticmethod
@@ -23,10 +22,14 @@ class HomePage():
 # EXAMPLE PAGE ================================================================================
 class MyPage1():
     """
-    Example Page 1
+    Example Page class
     """
     @staticmethod
     def load_mypage1():
+        """
+        example page load function
+        """
+        
         components.component_say_hello()
         components.component_mypage1_title()
 
@@ -34,9 +37,13 @@ class MyPage1():
 # ML PAGE ================================================================================
 class MyPage2():
     """
-    Example Page 2
+    Example Page class
     """
     @staticmethod
     def load_mypage2():
+        """
+        example page load function
+        """
+        
         components.component_say_hello()
         components.component_mypage2_title()
