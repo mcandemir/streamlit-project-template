@@ -1,3 +1,8 @@
+"""
+this is the main module where you set your initial sessions states
+and navigate your page with respect to `selected_page` session state
+"""
+
 import streamlit as st
 from src.pages import HomePage, MyPage1, MyPage2
 
@@ -18,6 +23,6 @@ match st.session_state['selected_page']:
 
     case 'mypage1':
         MyPage1.loadMyPage1()
-    
+
     case 'mypage2':
         MyPage2.loadMyPage2()

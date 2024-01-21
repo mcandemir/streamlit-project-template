@@ -11,7 +11,8 @@ setuptools.setup(
     author_email="mhmtcndmr01@gmail.com",
     licance="MIT",
     project_urls={
-        "Documentation": "https://github.com/mcandemir/streamlit-project-template/blob/master/README.md",
+        "Documentation": \
+        "https://github.com/mcandemir/streamlit-project-template/blob/master/README.md",
         "Repository": "https://github.com/mcandemir/streamlit-project-template"
     },
     classifiers={
