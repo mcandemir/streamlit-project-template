@@ -3,7 +3,7 @@ import setuptools
 
 setuptools.setup(
     name="streamlit-project-template",
-    version="0.1.1",
+    version="0.1.2",
     description="A solid project structure from basit to advanced streamlit applications.",
     long_description=pathlib.Path("README.md").read_text(),
     long_description_content_type="text/markdown",
