@@ -15,6 +15,10 @@ class HomePage():
     """
     @staticmethod
     def load_home_page():
+        """
+        example home page load function
+        """
+
         components.component_say_hello()
         components.component_change_page()
 
@@ -29,7 +33,7 @@ class MyPage1():
         """
         example page load function
         """
-        
+
         components.component_say_hello()
         components.component_mypage1_title()
 
@@ -44,6 +48,6 @@ class MyPage2():
         """
         example page load function
         """
-        
+
         components.component_say_hello()
         components.component_mypage2_title()

@@ -19,7 +19,7 @@ if 'selected_page' not in st.session_state:
 # page navigation
 match st.session_state['selected_page']:
     case 'home':
-        HomePage.loadHomePage()
+        HomePage.load_home_page()
 
     case 'mypage1':
         MyPage1.load_mypage1()
