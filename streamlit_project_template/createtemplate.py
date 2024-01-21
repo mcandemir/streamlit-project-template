@@ -9,8 +9,8 @@ class CreateTemplate():
         self.TEMPLATES= {
             'app': './app.py',
             'callbacks': 'src/callbacks.py',
-            'components': '.src/components.py',
-            'pages': '.src/pages.py',
+            'components': 'src/components.py',
+            'pages': 'src/pages.py',
         }
 
         # base templates (these will be copied to the user's project)
@@ -27,6 +27,9 @@ class CreateTemplate():
         # processes
         self._set_paths()
         self._create_srcfiles()
+        self._create_dockerfile()
+        self._create_requirements()
+        self._create_readme()
         pass
 
 
@@ -52,3 +55,32 @@ class CreateTemplate():
             self.BASE_TEMPLATE_PATHS[base_template] = os.path.join(path, f'template\{base_template}.py')
 
 
+    def _create_dockerfile(self):
+        with open('./Dockerfile', 'w') as f:
+            f.write("""FROM python:3.12-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \\
+    build-essential \\
+    curl \\
+    software-properties-common \\
+    git \\
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install -r requirements.txt
+
+EXPOSE 8501
+
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+
+ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]""")
+
+
+    def _create_requirements(self):
+        with open('./requirements.txt', 'w') as f:
+            f.write("""streamlit""")
+    
+    def _create_readme(self):
+        with open('./README.md', 'w') as f:
+            f.write("""# My Project""")
