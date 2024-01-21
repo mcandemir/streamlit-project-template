@@ -19,18 +19,18 @@ setuptools.setup(
         "Development Status :: 3 - Alpha",
         "Environment :: Console",
         "Intended Audience :: Developers",
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.12"
     },
     python_requires=">=3.6",
-    # install_requires=[
-    #     "streamlit"
-    # ],
-    # extras_require={
-    #     "extras": [
-    #         "streamlit-extras"
-    #     ]
-    # },
+    install_requires=[
+        "streamlit"
+    ],
+    extras_require={
+        "extras": [
+            "streamlit-extras"
+        ]
+    },
     packages=setuptools.find_packages(),
     include_package_data=True,
     entry_points={

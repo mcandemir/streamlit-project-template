@@ -18,6 +18,17 @@ A streamlit project template to create cleaner code and cost-efficient maintable
 ## Installation:
 ```
 $ pip install streamlit-project-template
+```
+
+### Installation with streamlit-extras:
+```
+$ pip install streamlit-project-template[extras]
+```
+
+## Create the Template
+```
+$ mkdir MyProject
+$ cd MyProject
 $ streamlit-project-template createtemplate
 ```
 
