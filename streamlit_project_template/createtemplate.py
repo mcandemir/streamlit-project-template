@@ -79,8 +79,13 @@ class CreateTemplate():
         path = os.path.join(path, 'template/')
 
         for base_template in self.base_template_paths:
-            self.base_template_paths[base_template] = os.path.join(path,
+            if 'src' not in self.templates[base_template]:
+                self.base_template_paths[base_template] = os.path.join(path,
                                                                    f'{base_template}.py',
+                                                                   ).replace('/', '\\')
+            elif 'src' in self.templates[base_template]:
+                self.base_template_paths[base_template] = os.path.join(path,
+                                                                   f'src\\{base_template}.py',
                                                                    ).replace('/', '\\')
 
 
