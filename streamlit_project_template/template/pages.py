@@ -1,5 +1,5 @@
 import streamlit as st
-import components
+from src import components
 
 
 

@@ -1,5 +1,5 @@
 import streamlit as st
-import callbacks
+from src import callbacks
 
 
 ### This is where you define your components. Every component is a piece of your applicaton

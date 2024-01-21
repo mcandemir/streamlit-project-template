@@ -1,5 +1,5 @@
 import streamlit as st
-from pages import HomePage, MyPage1, MyPage2
+from src.pages import HomePage, MyPage1, MyPage2
 
 
 # page config

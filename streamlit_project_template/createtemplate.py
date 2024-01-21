@@ -11,6 +11,7 @@ class CreateTemplate():
             'callbacks': 'src/callbacks.py',
             'components': 'src/components.py',
             'pages': 'src/pages.py',
+            '__init__': 'src/__init__.py',
         }
 
         # base templates (these will be copied to the user's project)
@@ -20,6 +21,7 @@ class CreateTemplate():
             'callbacks': '',
             'components': '',
             'pages': '',
+            '__init__': '',
         }
 
 
