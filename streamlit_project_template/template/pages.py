@@ -35,4 +35,4 @@ class MyPage2():
     @staticmethod
     def loadMyPage2():
         components.component_say_hello()
-        components.component_mypage1_title()
+        components.component_mypage2_title()
