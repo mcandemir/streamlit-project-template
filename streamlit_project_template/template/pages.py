@@ -13,6 +13,7 @@ class HomePage():
     @staticmethod
     def loadHomePage(): 
         components.component_say_hello()
+        components.component_change_page()
 
 
 # EXAMPLE PAGE ================================================================================
@@ -22,7 +23,8 @@ class MyPage1():
     """
     @staticmethod
     def loadMyPage1():        
-        pass
+        components.component_say_hello()
+        components.component_mypage1_title()
 
 
 # ML PAGE ================================================================================
@@ -32,4 +34,5 @@ class MyPage2():
     """
     @staticmethod
     def loadMyPage2():
-        pass
+        components.component_say_hello()
+        components.component_mypage1_title()

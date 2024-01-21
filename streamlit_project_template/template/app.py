@@ -3,7 +3,7 @@ from src.pages import HomePage, MyPage1, MyPage2
 
 
 # page config
-st.set_page_config(page_title="My Project", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="My Project", layout="centered", initial_sidebar_state="collapsed")
 
 
 # set session states
