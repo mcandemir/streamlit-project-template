@@ -15,7 +15,7 @@ class HomePage():
     Here you can add your defined components under the loadPage() function
     """
     @staticmethod
-    def loadHomePage():
+    def load_home_page():
         components.component_say_hello()
         components.component_change_page()
 
@@ -26,7 +26,7 @@ class MyPage1():
     Example Page 1
     """
     @staticmethod
-    def loadMyPage1():
+    def load_mypage1():
         components.component_say_hello()
         components.component_mypage1_title()
 
@@ -37,6 +37,6 @@ class MyPage2():
     Example Page 2
     """
     @staticmethod
-    def loadMyPage2():
+    def load_mypage2():
         components.component_say_hello()
         components.component_mypage2_title()

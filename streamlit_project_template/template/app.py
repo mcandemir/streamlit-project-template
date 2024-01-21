@@ -22,7 +22,7 @@ match st.session_state['selected_page']:
         HomePage.loadHomePage()
 
     case 'mypage1':
-        MyPage1.loadMyPage1()
+        MyPage1.load_mypage1()
 
     case 'mypage2':
-        MyPage2.loadMyPage2()
+        MyPage2.load_mypage2()
