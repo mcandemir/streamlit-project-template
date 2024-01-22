@@ -1,6 +1,6 @@
 # Streamlit Project Template
 
-A streamlit project template to create cleaner code and cost-efficient maintable apps.
+A streamlit project template to create cleaner code and cost-efficient maintainable apps.
 
 ## Architecture:
 
