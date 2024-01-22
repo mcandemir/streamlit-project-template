@@ -1,6 +1,12 @@
 # Streamlit Project Template
 
-A streamlit project template to create cleaner code and cost-efficient maintable apps. 
+A streamlit project template to create cleaner code and cost-efficient maintable apps.
+
+## Architecture:
+
+Every page has it's own components (user defined row of streamlit widgets) and every page is navigated under the app module by one session state; `selected_page`. Also to keep the code maintainable, callbacks are defined in `callbacks.py` module.
+
+![img](/assets/img/architecture.png)
 
 ## Template Hierarchy:
     MyProject
